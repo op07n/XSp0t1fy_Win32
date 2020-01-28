@@ -14,7 +14,7 @@ platform:
 
 # add configurations to build matrix:
 configuration:
-  - Release
+  - Debug
 
 before_build:
   - git clone -b develop --single-branch https://github.com/meik97/XSpotify.git
@@ -24,12 +24,12 @@ before_build:
 # use custom build_script
 build_script:
   - ECHO BUILD %CONFIGURATION% %PLATFORM%
-#  - msbuild /m XSpotify.sln /p:Configuration=%CONFIGURATION% /p:Platform=%PLATFORM%
-  - msbuild /m XSpotify.sln
+  - msbuild /m XSpotify.sln /p:Configuration=%CONFIGURATION% /p:Platform=%PLATFORM%
+#  - msbuild /m XSpotify.sln
 
 after_build:
   - dir
-  - 7z a XSpotify.7z "C:\projects\xsp0t1fy-win32\XSpotify\XSpotify\build\lib\Release"
+  - 7z a XSpotify.7z "C:\projects\xsp0t1fy-win32\XSpotify\XSpotify\build\lib\Debug"
 
 artifacts:  # Archive the generated packages in the ci.appveyor.com build report.  - path: bin\Debug\*
   - path: XSpotify\XSpotify\build\XSpotify.7z
