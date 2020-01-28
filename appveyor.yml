@@ -1,0 +1,36 @@
+# AppVeyor build configuration
+# https://www.appveyor.com/docs/build-configuration
+# https://www.appveyor.com/docs/appveyor-yml/
+#---------------------------------#
+#      general configuration      #
+#---------------------------------#
+# version format
+version: 1.0.{build}-{branch}
+image: Visual Studio 2017
+
+# add platforms to build matrix:
+platform:
+  - Win32
+
+# add configurations to build matrix:
+configuration:
+  - Release
+
+before_build:
+  - git clone -b develop --single-branch htps://github.com/meik97/XSpotify.git
+  - cmd: cd "XSpotify\XSpotify" 
+
+
+# use custom build_script
+build_script:
+  - ECHO BUILD %CONFIGURATION% %PLATFORM%
+  - msbuild /m XSpotify.sln /p:Configuration=%CONFIGURATION% /p:Platform=%PLATFORM%
+
+after_build:
+  - dir
+  - 7z a XSpotify.7z "C:\projects\xsp0t1fy-win32\XSpotify\XSpotify\build\lib\Release"
+
+artifacts:  # Archive the generated packages in the ci.appveyor.com build report.  - path: bin\Debug\*
+  - path: XSpotify\XSpotify\build\XSpotify.7z
+    name: artifacts-all
+    
