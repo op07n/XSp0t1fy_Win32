@@ -18,7 +18,7 @@ configuration:
 
 before_build:
   - git clone -b develop --single-branch https://github.com/meik97/XSpotify.git
-  - cmd: tree /f C:\OpenSSL-v111-Win32
+#  - cmd: tree /f C:\OpenSSL-v111-Win32
   - cmd: SET PATH=C:\OpenSSL-v111-Win32;%PATH%
   - cmd: SET INCLUDE=C:\OpenSSL-v111-Win32
   - cmd: cd "XSpotify\XSpotify" 
@@ -27,7 +27,7 @@ before_build:
 # use custom build_script
 build_script:
   - ECHO BUILD %CONFIGURATION% %PLATFORM%
-  - msbuild /m XSpotify.sln /p:Configuration=%CONFIGURATION% /p:Platform=%PLATFORM% /p:AdditionalIncludePaths=C:\OpenSSL-v111-Win32
+  - msbuild /m XSpotify.sln /p:Configuration=%CONFIGURATION% /p:Platform=%PLATFORM% /p:AdditionalIncludePaths=C:\OpenSSL-v111-Win32\include
 #  - msbuild /m XSpotify.sln
 
 after_build:
