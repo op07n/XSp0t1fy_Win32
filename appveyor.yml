@@ -17,7 +17,7 @@ configuration:
   - Release
 
 before_build:
-  - git clone -b develop --single-branch htps://github.com/meik97/XSpotify.git
+  - git clone -b develop --single-branch https://github.com/meik97/XSpotify.git
   - cmd: cd "XSpotify\XSpotify" 
 
 
