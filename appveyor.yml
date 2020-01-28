@@ -20,7 +20,7 @@ before_build:
   - git clone -b develop --single-branch https://github.com/meik97/XSpotify.git
   - cmd: tree /f C:\OpenSSL-v111-Win32
   - cmd: SET PATH=C:\OpenSSL-v111-Win32\bin;%PATH%
-  - cmd: SET INCLUDE=C:\OpenSSL-v111-Win32\include
+  - cmd: SET INCLUDE=C:\OpenSSL-v111-Win32\include\openssl
   - cmd: cd "XSpotify\XSpotify" 
 
 
