@@ -18,6 +18,7 @@ configuration:
 
 before_build:
   - git clone -b develop --single-branch https://github.com/meik97/XSpotify.git
+  - cmd: SET PATH=C:\Program Files\OpenSSL;%PATH%
   - cmd: cd "XSpotify\XSpotify" 
 
 
