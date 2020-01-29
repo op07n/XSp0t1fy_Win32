@@ -6,7 +6,7 @@
 #---------------------------------#
 # version format
 version: 1.0.{build}-{branch}
-image: Visual Studio 2017
+image: Visual Studio 2019
 
 # add platforms to build matrix:
 platform:
@@ -28,7 +28,7 @@ before_build:
 # use custom build_script
 build_script:
   - ECHO BUILD %CONFIGURATION% %PLATFORM%
-  - msbuild /m XSpotify.sln /p:AdditionalIncludePaths="C:\OpenSSL-v111-Win32\include" /p:Configuration=%CONFIGURATION% /p:Platform=%PLATFORM% 
+  - msbuild /m XSpotify.sln /p:AdditionalIncludePaths="C:\OpenSSL-v111-Win32" /p:Configuration=%CONFIGURATION% /p:Platform=%PLATFORM% 
 #  - msbuild /m XSpotify.sln
 
 after_build:
