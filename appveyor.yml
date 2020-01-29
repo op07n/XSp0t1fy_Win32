@@ -21,6 +21,7 @@ before_build:
 #  - cmd: tree /f C:\OpenSSL-v111-Win32
   - cmd: SET PATH=C:\OpenSSL-v111-Win32;%PATH%
   - cmd: SET INCLUDE=C:\OpenSSL-v111-Win32
+  - cmd: SET UseEnv=true
   - cmd: cd "XSpotify\XSpotify" 
 
 
